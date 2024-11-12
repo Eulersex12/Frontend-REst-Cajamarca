@@ -1,45 +1,175 @@
 ---
 ---
-<div>
-    <div class="suport">
-        <i class="fa-solid fa-headset"></i>
-        <div class="text-suport">
-            <h4>Soporte al cliente</h4>
-            <h5>51+ 999 999 99</h5>
+<div class="conten">
+    <div class="header-1">
+        <div class="suport">
+            <i class="fa-solid fa-headset"></i>
+            <div class="text-suport">
+                <h4>Soporte al cliente</h4>
+                <h5>51+ 999 999 99</h5>
+            </div>
         </div>
-    </div>
-    <div class="logo">
-        
-    </div>
+        <div class="logo">
+            <img src="/cuy-vector.svg" alt="logo-cuy">
+            <h2>Sazón <br>y<br>buen sabor</h2>
+        </div>
+        <div class="login">
+            <i class="fa-solid fa-user"></i>
+            <button>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>
+                    <p>Comprar</p>
+                    <h3>(0)</h3>
+                </span> 
+            </button>
+            
+        </div>
 
-</div>
-<div>
-    <ul>
-        <li>
-            <a href="">
-                <spam>Inicio</spam>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <spam>Sevicios</spam>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <spam>Platillos</spam>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <spam>Contacto</spam>
-            </a>
-        </li>
-    </ul>
+    </div>
+   
+</div> 
+<div class="header-2">
+     <div class="contaoner-header">
+        <ul>
+            <li>
+                <a href="">
+                    <spam>Inicio</spam>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <spam>Sevicios</spam>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <spam>Platillos</spam>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <spam>Contacto</spam>
+                </a>
+            </li>
+        </ul>
 
-    <form action="/search" method="GET">
-        <input type="text" name="query" placeholder="Buscar..." required>
-        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
-      
+        <form action="/search" method="GET">
+            <input type="text" name="query" placeholder="Buscar..." required>
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </div>      
 </div>
+<style>
+    .conten {
+        width: 90%;
+        margin: 0 auto;
+    }
+    .header-1 {
+        width: 100%;
+        height: 100px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr );
+        align-items: center;
+        & .suport {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            & i {
+                font-size: 2rem;
+                margin-right: 5px;
+            }
+            & .text-suport {
+                width: 100%;
+                & h5, h4{
+                    line-height: 1;
+                }
+            }
+        }
+        & .logo {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & img {
+                width: 12%;
+            }
+            & h2 {
+                text-align: center;
+                text-transform: uppercase;
+                font-weight: 800;
+                line-height: 80%;
+            }
+        }
+        & .login {
+            width: 100%;
+
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            & i {
+                font-size: 2rem;
+            }
+            & button {
+                width: 20%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                margin-left: 15px;
+                border: 0;
+                border-left: 2px solid black;
+                background-color: var(--color8);
+                position: relative;
+                & span {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    & h3, p {
+                        line-height: 0;
+                    }
+                }
+            }
+        }
+    }
+    .header-2 {
+        background-color: var(--color7);
+        & .contaoner-header {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            & ul {
+                width: 40%;
+                height: 60px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                & li {
+                    width: 100%;
+                    height: 100%;
+                    & a {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        & spam {
+                            color: var(--color8);
+                            font-size: 1.1rem;
+                            font-weight: 700;
+                        }
+                    }
+
+                    & a:hover spam {
+                        text-decoration: underline;
+
+                    }
+
+                }
+
+            }
+        }
+    }
+</style>
