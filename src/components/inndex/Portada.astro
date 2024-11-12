@@ -1,0 +1,104 @@
+---
+---
+<ul>
+    <li class="mySlides fade">
+            <img src="/img/slider_1.webp" alt="img-slider-1">
+            <div class="des">
+                <h2>chicharron con mote</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+    </li>
+    <li class="mySlides fade">
+            <img src="/img/slider_2.webp" alt="img-slider-2">
+            <div class="des">
+                <h2>frito con ceviche</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+    </li>
+    <li class="mySlides fade">
+            <img src="/img/slider_3.webp" alt="img-slider-3">
+            <div class="des">
+                <h2>cuy frito</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+    </li>
+    <button class="prev" >&#10094;</button>
+    <button class="next" >&#10095;</button>
+</ul>
+
+<style>
+    ul {
+        width: 100%;
+        height: 660px;
+        position: relative;
+        & .mySlides {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center 20%;
+                z-index: 1;
+                filter: contrast(0.9);
+            }
+            & .des {
+                position: absolute;
+                top: 40%;
+                left: 15%;
+                z-index: 2;
+                & h2, p {
+                    color: var(--color8);
+                }
+                & h2 {
+                    text-transform: uppercase;
+                    font-size: 2.5rem;
+                    text-shadow: 2px 5px 2px rgba(0, 0, 0, 0.911);
+                }
+                & p{
+                    font-size: 1.5rem;
+                }  
+            }
+        }
+        & .next, .prev{
+            position: absolute;
+            bottom: 5%;
+        }
+        & .next {
+            right: 45%;
+        }
+        & .prev {
+            left: 45%;
+        }
+    }
+</style>
+<script>
+    const slides = Array.from(document.getElementsByClassName("mySlides")as HTMLCollectionOf<HTMLElement>);
+    const nextS = document.querySelector(".next");
+    const prevS = document.querySelector(".prev") 
+    const maxSlider = slides.length;
+    let init = 0;
+
+    function showSlide() {
+    // Oculta todos los slides
+        slides.forEach(slide => {
+            slide.style.display = 'none';
+    });
+
+    // Muestra el slide actual
+        slides[init].style.display = 'block';
+    }
+    function next () {
+        init = (init + 1) % maxSlider;
+        showSlide()
+    };
+    function prev () {
+        init = (init - 1 + maxSlider) % maxSlider;
+        showSlide()
+    };
+    nextS.addEventListener('click', next);
+    prevS.addEventListener('click', prev);  
+    showSlide()
+
+</script>
