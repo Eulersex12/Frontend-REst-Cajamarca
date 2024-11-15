@@ -32,28 +32,28 @@
      <div class="contaoner-header">
         <ul>
             <li>
-                <a href="">
-                    <spam>Inicio</spam>
+                <a href="/">
+                    <span>Inicio</span>
                 </a>
             </li>
             <li>
                 <a href="">
-                    <spam>Sevicios</spam>
+                    <span>Sevicios</span>
                 </a>
             </li>
             <li>
                 <a href="">
-                    <spam>Platillos</spam>
+                    <span>Platillos</span>
                 </a>
             </li>
             <li>
-                <a href="">
-                    <spam>Contacto</spam>
+                <a href="/contacto">
+                    <span>Contacto</span>
                 </a>
             </li>
         </ul>
 
-        <form action="/search" method="GET">
+        <form action="/search" method="GET" class="formulario">
             <input type="text" name="query" placeholder="Buscar..." required>
             <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
@@ -156,14 +156,14 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
-                        & spam {
+                        & span {
                             color: var(--color8);
                             font-size: 1.1rem;
                             font-weight: 700;
                         }
                     }
 
-                    & a:hover spam {
+                    & a:hover span {
                         text-decoration: underline;
 
                     }
@@ -173,4 +173,36 @@
             }
         }
     }
+    .formulario {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.formulario input[type="text"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 250px;
+}
+
+.formulario button {
+    background-color: #ff7b00;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formulario button:hover {
+    background-color: #ff5e00;
+}
+
+.formulario button i {
+    font-size: 16px;
+}
 </style>

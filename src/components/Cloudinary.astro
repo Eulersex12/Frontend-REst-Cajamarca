@@ -1,0 +1,49 @@
+---
+import { CldUploadWidget } from 'astro-cloudinary';
+---
+<CldUploadWidget
+  id="upload-events"
+  uploadPreset="subir-img"
+>
+    <button>Upload</button>
+</CldUploadWidget>
+
+<h2 id="image-url">Url: </h2>
+<script>
+const widget = document.querySelector('#upload-events');
+
+if ( widget ) {
+  widget.addEventListener('clduploadwidget:success', ((e: CustomEvent<{
+[x: string]: any; detail: object 
+}>) => {
+    console.log('clduploadwidget:success', e.detail);
+    // {
+    //  event: '<Event>',
+    //  info: '<Cloudinary Resource>',
+    //  UploadWidget // Widget Instance,
+    // }
+    const secureUrl = e.detail.info.secure_url;
+    console.log('Secure URL:', secureUrl);
+    // aqui inyecto la url 
+    const imageUrlElement = document.getElementById('image-url');
+    if (imageUrlElement) {
+      imageUrlElement.textContent = `La URL de la imagen: ${secureUrl}`;
+    } else {
+        console.error('No hay')
+    };
+
+    // Cerrar el widget automáticamente después de la carga exitosa
+     // Intentar cerrar el widget automáticamente después de la carga exitosa
+     const widgetInstance = e.detail.UploadWidget;
+      if (widgetInstance) {
+        widgetInstance.close(); // Usa close() si está disponible
+        console.log("Widget cerrado correctamente.");
+      } else {
+        console.error("No se encontró el objeto UploadWidget para cerrar.");
+      }
+  }) as EventListener);
+}
+</script>
+
+
+

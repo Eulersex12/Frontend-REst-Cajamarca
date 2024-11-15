@@ -1,0 +1,31 @@
+---
+
+import { getData } from '../utils/apiClient'
+import type { Product} from '../utils/types'
+let products : Product[] = [];
+try {
+    const response = await getData();
+    products = response.data;
+    console.log('Productos obtenidos:', products);
+} catch (error) {
+    console.error('error al obtener productos')
+}
+---
+
+<div class="datos">
+    <h1>Conexión al Backend</h1>
+    <div>
+      {Array.isArray(products) ? (
+        products.map(({ id, title, description, url, precio }) => (
+          <div class="product">
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <h3>Img Prueba URL: {url}</h3>
+            <p>Precio: {precio}</p>
+          </div>
+        ))
+      ) : (
+        <p>No hay productos disponibles</p>
+      )}
+    </div>
+  </div>

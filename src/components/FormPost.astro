@@ -1,0 +1,61 @@
+---
+---
+<div class="clase-form">
+    <form id="postForm" class="form">
+      <div class="nombre">
+        <label class="lavel-form" for="title">Nombre:</label>
+        <input
+          id="title"
+          type="text"
+          name="title"
+          class="input-cs"
+          placeholder="Nombre Producto"
+          required
+        />
+      </div>
+      <div class="nombre">
+        <label class="lavel-form" for="description">Descripción:</label>
+        <input
+          id="description"
+          type="text"
+          name="description"
+          class="input-cs"
+          placeholder="Descripción del Producto"
+          required
+        />
+      </div>
+      <div class="nombre">
+        <label class="lavel-form" for="precio">Precio:</label>
+        <input
+          id="precio"
+          name="precio"
+          type="number"
+          class="input-cs"
+          placeholder="Precio Producto"
+          required
+        />
+      </div>
+      <input class="submit" type="submit" value="Registrar Producto" />
+    </form>
+  </div>
+
+  <script type="module">
+    document.getElementById('postForm').addEventListener('submit', async (e) => {
+      e.preventDefault(); // Evita el envío del formulario tradicional
+      console.log('Formulario enviado');
+
+      // Crear FormData a partir del evento
+      const formData = new FormData(e.target);
+      
+      // Obtener los datos del formulario
+      const data = {
+        title: formData.get('title'),
+        description: formData.get('description'),
+        precio: formData.get('precio'),
+      };
+
+      console.log(data); // Debería mostrarse en la consola
+
+      // Aquí podrías enviar `data` al backend con fetch u otro método.
+    });
+  </script>
